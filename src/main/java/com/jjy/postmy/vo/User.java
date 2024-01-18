@@ -18,14 +18,23 @@ public class User {
     public User() {
     }
 
+    // 로그인
+    public void loginToDto(UserReqDto userReqDto) {
+        this.id = userReqDto.getId();
+        this.password = userReqDto.getPassword();
+    }
+
     // 닉네임 찾기
     public void PinNoToNickname(String pinNo) {
         this.pinNo = pinNo;
     }
 
-    // 로그인
-    public void UserDtoToVo(UserReqDto userReqDto) {
+    // 회원가입
+    public void joinToDto(UserReqDto userReqDto, String newPinNo) {
         this.id = userReqDto.getId();
         this.password = userReqDto.getPassword();
+        this.nickName = userReqDto.getNickName();
+        this.email = userReqDto.getEmail();
+        this.pinNo = newPinNo;
     }
 }

@@ -3,11 +3,11 @@ package com.jjy.postmy.controller;
 import com.jjy.postmy.dto.UserReqDto;
 import com.jjy.postmy.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/my")
 public class UserController {
 
     private UserService userService;
@@ -19,10 +19,23 @@ public class UserController {
     // 로그인
     @PostMapping("/login")
     public String login(UserReqDto userReqDto) {
-        userService.login(userReqDto);
-        return "redirect:/my/my-posts";
+        String result = userService.login(userReqDto);
+        return result;
     }
 
     // 로그아웃
+    @GetMapping("/logout")
+    public String logout() {
+        userService.logout();
+        return "/mainpage";
+    }
+
+    // 회원가입
+    @PostMapping("/join")
+    public String join(UserReqDto userReqDto) {
+        String result = userService.join(userReqDto);
+        return result;
+    }
+
     // 탈퇴
 }

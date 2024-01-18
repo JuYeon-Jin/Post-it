@@ -25,23 +25,41 @@ public class UserService {
     }
 
     // 로그인
-    public void login(UserReqDto userReqDto) {
+    public String login(UserReqDto userReqDto) {
         User user = new User();
-        user.UserDtoToVo(userReqDto);
+        user.loginToDto(userReqDto);
 
         String pinNo = userDao.loginUser(user);
         user.PinNoToNickname(pinNo);
         String nickName = userDao.findNickName(user);
+
+        System.out.println("pinNo = " + pinNo);
 
         // 로그인 성공/실패 분기 처리
         if (pinNo != null) {
             HttpSession session = request.getSession();
             session.setAttribute("pinNo", pinNo);
             session.setAttribute("nickName", nickName);
+            return "/my-posts";
         } else {
-            throw new RuntimeException("로그인 실패");
+            return "/error";
         }
     }
 
+    // 로그아웃
+    public void logout() {
+        HttpSession session = request.getSession();
+        session.invalidate();
+    }
 
+    // 회원가입
+    public String join(UserReqDto userReqDto) {
+        User user = new User();
+        userDao.makePin();
+        user.joinToDto(userReqDto, userDao.newPinNo());
+        userDao.joinUser(user);
+        userDao.setNickName(user);
+
+        return "/mainpage";
+    }
 }

@@ -5,21 +5,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/my")
 public class IndexController {
 
     // 메인페이지 이동
-    @GetMapping("/post-main")
+    @GetMapping("/mainpage")
     public String mainPage() {
-        return "post-main";
+        return "mainpage";
     }
 
     // 회원가입 페이지 이동
-    @GetMapping("/post-join")
-    public String joinPage() { return "post-join"; }
+    @GetMapping("/join-form")
+    public String joinPage() { return "join-form"; }
 
     // 아이디 찾기 페이지 이동
+    @GetMapping("/findid")
+    public String findIdPage() { return "findid"; }
+
     // 비밀번호 찾기 페이지 이동
+    @GetMapping("/findpw")
+    public String findPwPage() { return "findpw"; }
 
 
 }
