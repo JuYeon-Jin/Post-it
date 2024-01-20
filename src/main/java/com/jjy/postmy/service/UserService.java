@@ -33,8 +33,6 @@ public class UserService {
         user.PinNoToNickname(pinNo);
         String nickName = userDao.findNickName(user);
 
-        System.out.println("pinNo = " + pinNo);
-
         // 로그인 성공/실패 분기 처리
         if (pinNo != null) {
             HttpSession session = request.getSession();

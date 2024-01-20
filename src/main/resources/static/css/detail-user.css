@@ -1,0 +1,112 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+/* 로그인 폼 디자인
+boxDesign1
+    > loginFormBox
+        > inputBox
+            > span
+            > input
+        > button
+    > etcBox
+*/
+.boxDesign1 {
+    position: absolute;
+    top: 8vh;
+    width: 460px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.loginFormBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputBox {
+    margin: 10px;
+}
+
+.inputBox span,
+.inputBox input {
+    font-family: 'Pretendard';
+    letter-spacing: 0.02em;
+    display: inline-block;
+}
+
+.inputBox span {
+    width: 85px;
+    font-size: 16pt;
+    padding-top: 2px;
+    margin: 15px 5px 3px 1px;
+}
+
+.inputBox input {
+    height: 30px;
+    width: 160px;
+    padding-left: 5px;
+    font-size: 12pt;
+    border: none;
+    border-radius: 3px;
+    background-color: #E3E4E4;
+}
+
+.inputBox input:focus {
+    outline: 2px solid #476250;
+    background-color: #fffabd;
+}
+
+.loginBtn {
+    height: 82px;
+    width: 90px;
+    margin-top: 16px;
+    font-family: 'Pretendard';
+    font-size: 13pt;
+    letter-spacing: 0.1em;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    background-color: #476250;
+}
+
+.loginBtn:hover {
+    background-color: #395241;
+    font-weight: bold;
+}
+
+.loginBtn:active {
+    box-shadow: inset 0px 0px 9px 0px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.etcBox {
+    font-family: 'Pretendard';
+    font-size: 14pt;
+    letter-spacing: 0.02em;
+    text-align: center;
+    margin: 20px;
+}
+
+.etcBox a {
+    margin: 5px;
+}
+
+.boxDesign2 {
+    position: absolute;
+    top: 8vh;
+    width: 460px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+}

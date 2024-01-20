@@ -18,12 +18,14 @@ public class IndexController {
     public String joinPage() { return "join-form"; }
 
     // 아이디 찾기 페이지 이동
-    @GetMapping("/findid")
+    @GetMapping("/find-id")
     public String findIdPage() { return "findid"; }
 
     // 비밀번호 찾기 페이지 이동
-    @GetMapping("/findpw")
+    @GetMapping("/find-pw")
     public String findPwPage() { return "findpw"; }
 
-
+    // 테스트 페이지 이동
+    @GetMapping("/test")
+    public String findTestPage() { return "test"; }
 }

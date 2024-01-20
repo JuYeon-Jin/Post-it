@@ -5,7 +5,6 @@ import com.jjy.postmy.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UserController {
@@ -20,14 +19,14 @@ public class UserController {
     @PostMapping("/login")
     public String login(UserReqDto userReqDto) {
         String result = userService.login(userReqDto);
-        return result;
+        return "redirect:" + result;
     }
 
     // 로그아웃
     @GetMapping("/logout")
     public String logout() {
         userService.logout();
-        return "/mainpage";
+        return "redirect:/mainpage";
     }
 
     // 회원가입
