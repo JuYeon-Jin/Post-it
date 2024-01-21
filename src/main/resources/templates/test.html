@@ -7,12 +7,48 @@
 
     <script>
         function showPopup() {
-            alert("버튼 클릭");
+            alert("showPopup");
+
             var popup = document.getElementById('popup');
             if (popup) {
                 popup.style.display = 'block';
             }
         }
+
+        // 외부 HTML을 텍스트로 가져오는 함수
+        async function fetchHtmlAsText(url) {
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error(`Failed to fetch HTML from ${url}`);
+            }
+
+            return await response.text();
+        }
+
+        // 현재 파일의 div에 외부 HTML 내용을 삽입하는 함수
+        async function insertExternalHtmlIntoDiv(divId, externalHtmlPath) {
+            alert("버튼 클릭");
+            try {
+                const divElement = document.getElementById(divId);
+                alert("divElement = " + divElement);
+
+                if (!divElement) {
+                    console.error(`Element with ID ${divId} not found.`);
+                    return;
+                }
+
+                alert("함수 넘어옴1");
+                const externalHtmlText = await fetchHtmlAsText(externalHtmlPath);
+                divElement.innerHTML = externalHtmlText;
+                alert("함수 넘어옴2");
+                showPopup();
+
+            } catch (error) {
+                console.error(`Error: ${error.message}`);
+            }
+        }
+
     </script>
 
 </head>
@@ -41,11 +77,14 @@
             <div class="postTitle"><span>제목3</span></div></div>
 
             <div class="postDesign"><button id="aa" onclick="showPopup()"> 새글쓰기 </button></div>
+            <button onclick="insertExternalHtmlIntoDiv('popup', '/popupThyme')">외부 HTML 삽입</button>
 
         </div><!-- end.postArea -->
     </div><!-- end.container -->
 
-    <div id="popup" class="popup">짜잔</div>
+    <div id="popup" class="popup">짜잔
+        <div></div>
+        <button>닫기</button></div>
 
     <!-- 풋터 -->
     <div class="footer"><div th:include="footer"></div></div>
