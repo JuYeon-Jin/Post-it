@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>post !t</title>
     <link rel="stylesheet" type="text/css" href="/css/frame.css">
-    <link rel="stylesheet" type="text/css" href="/css/detail-user.css">
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
 </head>
 <body>
 
@@ -18,20 +18,20 @@
     <div class="boxDesign1">
 
         <!-- 로그인 -->
-        <form action="/login" method="post" class="loginFormBox">
+        <form action="/login" method="post" class="rowFormBox">
             <div class="inputBox">
                 <span>아이디</span>
-                <input type="text" id="id" name="id" autocomplete="off" spellcheck="false"><br>
+                <input type="text" id="id" name="id" class="lenS" autocomplete="off" spellcheck="false"><br>
                 <span>비밀번호</span>
-                <input type="password" id="password" name="password" autocomplete="off" spellcheck="false">
+                <input type="password" id="password" name="password" class="lenS" autocomplete="off" spellcheck="false">
             </div>
             <button type="submit" class="loginBtn">로그인</button>
         </form>
 
         <!-- 회원가입/아이디.비밀번호 찾기 폼으로 이동 -->
         <div class="etcBox">
-            <a href="/find-id">아이디 찾기</a> |
-            <a href="/find-pw">비밀번호 찾기</a> |
+            <a href="/findid-form">아이디 찾기</a> |
+            <a href="/findpw-form">비밀번호 찾기</a> |
             <a href="/join-form">회원가입 </a>
         </div>
 

@@ -15,15 +15,15 @@ public class IndexController {
 
     // 회원가입 페이지 이동
     @GetMapping("/join-form")
-    public String joinPage() { return "join-form"; }
+    public String joinPage() { return "/user/join-form"; }
 
     // 아이디 찾기 페이지 이동
-    @GetMapping("/find-id")
-    public String findIdPage() { return "findid"; }
+    @GetMapping("/findid-form")
+    public String findIdPage() { return "/user/findid-form"; }
 
     // 비밀번호 찾기 페이지 이동
-    @GetMapping("/find-pw")
-    public String findPwPage() { return "findpw"; }
+    @GetMapping("/findpw-form")
+    public String findPwPage() { return "/user/findpw-form"; }
 
     // 테스트 페이지 이동
     @GetMapping("/test")

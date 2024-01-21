@@ -36,5 +36,19 @@ public class UserController {
         return result;
     }
 
+    // 아이디 찾기
+    @PostMapping("/findid")
+    public String findid(UserReqDto userReqDto) {
+        String result = "#";
+        return result;
+    }
+
+    // 비밀번호 찾기
+    @PostMapping("/findpw")
+    public String findpw(UserReqDto userReqDto) {
+        String result = "#";
+        return result;
+    }
+
     // 탈퇴
 }

@@ -1,0 +1,42 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+.postArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.postDesign {
+    width: 200px;
+    height: 180px;
+    margin: 15px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #DFE7E1;
+    border: none;
+    border-radius: 5px; }
+
+.endDate {
+    height: 10%;
+    padding: 0 10px;
+}
+
+.endDateText {
+    color: gray;
+    font-family: 'Pretendard';
+    font-size: 10pt;
+}
+
+.postTitle {
+    height: 76%;
+    padding: 0 10px;
+    text-align:center;
+}
+
+.postTitleText {
+    font-family: 'Pretendard';
+    font-size: 14pt;
+}

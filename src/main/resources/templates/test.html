@@ -2,34 +2,53 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>post !t:회원가입</title>
+    <title>test</title>
     <link rel="stylesheet" type="text/css" href="/css/test.css">
+
+    <script>
+        function showPopup() {
+            alert("버튼 클릭");
+            var popup = document.getElementById('popup');
+            if (popup) {
+                popup.style.display = 'block';
+            }
+        }
+    </script>
+
 </head>
 <body>
 
 <div class="wrapper">
+    <!-- 헤더 -->
+    <div class="header"><div th:include="header"></div></div>
 
-    <div class="header">
-        헤더
-    </div>
 
+    <!-- 컨테이너 -->
     <div class="container">
-        <div class="boxDesign2">
+        로그인 확인용 회원정보<br>
+        닉네임 : 000 님<br><br>
 
-            <form action="/join" method="post" class="joinFormBox">
+        <div class="postArea">
 
-                <br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1
-                <br>1<br>1<br>1<br>1<br>1<br>1<br>1<br>1
+            <div class="postDesign">
+            <div class="endDate"><span class="endDateText">2024-01-22 18:00:00</span></div>
+            <div class="postTitle"><span>제목1</span></div></div>
+            <div class="postDesign">
+            <div class="endDate"><span class="endDateText">2024-01-22 18:00:00</span></div>
+            <div class="postTitle"><span>제목2</span></div></div>
+            <div class="postDesign">
+            <div class="endDate"><span class="endDateText">2024-01-22 18:00:00</span></div>
+            <div class="postTitle"><span>제목3</span></div></div>
 
-            </form>
+            <div class="postDesign"><button id="aa" onclick="showPopup()"> 새글쓰기 </button></div>
 
-        </div><!-- end.boxDesign2 -->
+        </div><!-- end.postArea -->
     </div><!-- end.container -->
 
-    <div class="footer">
-        풋터
-    </div>
+    <div id="popup" class="popup">짜잔</div>
 
+    <!-- 풋터 -->
+    <div class="footer"><div th:include="footer"></div></div>
 </div>
 
 </body>

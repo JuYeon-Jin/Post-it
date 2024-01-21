@@ -17,7 +17,7 @@ public class PostController {
     // 로그인 후 포스트 페이지 이동
     @GetMapping("/my-posts")
     public ModelAndView myPost(ModelAndView mav) {
-        mav.setViewName("my-posts");
+        mav.setViewName("/post/my-posts");
         mav.addObject("posts",postService.allPosts());
 
         return mav;

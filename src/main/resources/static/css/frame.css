@@ -11,7 +11,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: #e3e8e5;
+    overflow-x: hidden;  /* 01/21 추가 */
 }
 
 .wrapper {
@@ -56,6 +56,7 @@ body {
 
 .header {
     height: 30%;
+    min-height: 200px;  /* 01/21 추가 */
     align-items: flex-end;
 }
 
@@ -63,11 +64,12 @@ body {
     flex: 1;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: relative; /* 삭제불가-mainpage 에서 사용 */
 }
 
 .footer {
     height: 80px;
+    min-height: 80px;  /* 01/21 추가 */
     align-items: center;
     background-color: #C9D7CD;
 }
