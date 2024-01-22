@@ -29,3 +29,6 @@ CREATE TABLE POST(
 	postDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY (pinNo) REFERENCES USERPIN(pinNo)
 );
+
+-- dueDate 에 인덱스 추가?
+-- CREATE INDEX idx_dueDate ON POST(dueDate);

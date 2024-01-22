@@ -1,5 +1,6 @@
 package com.jjy.postmy.vo;
 
+import com.jjy.postmy.dto.PostReqDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -16,5 +17,13 @@ public class Post {
 
     // 기본 생성자
     public Post() {
+    }
+
+    public void dtoToPost(PostReqDto postReqDto, String sessionPinNo) {
+        this.pinNo = sessionPinNo;
+        this.title = postReqDto.getTitle();
+        this.content = postReqDto.getContent();
+        this.dueDate = postReqDto.getDueDate();
+
     }
 }

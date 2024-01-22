@@ -1,6 +1,7 @@
 package com.jjy.postmy.dao;
 
 import com.jjy.postmy.vo.Post;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -13,6 +14,9 @@ public interface PostDao {
     public List<Post> allPosts(@Param("pinNo") String a);
 
     // 게시물 작성
+    @Insert("INSERT INTO POST (pinNo, title, content, dueDate)" +
+            " VALUES (#{post.pinNo}, #{post.title}, #{post.content}, #{post.dueDate})")
+    public void insertPost(@Param("post") Post a);
 
     // 게시물 수정
 

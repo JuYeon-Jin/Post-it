@@ -5,6 +5,41 @@
     <title>post !t:회원가입</title>
     <link rel="stylesheet" type="text/css" href="/css/frame.css">
     <link rel="stylesheet" type="text/css" href="/css/user.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+    $(function() {
+        $("#joinBtn").click(function() {
+            alert("클릭");
+
+            var jsonJoin = {};
+            var formData = $("#joinForm").serializeArray();
+            $(formData).each(function(index, obj){
+                jsonJoin[obj.name] = obj.value;
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "/joinCheck",
+                data: JSON.stringify(jsonJoin),
+                contentType:  "application/json",
+                success: function(temp) {
+                    if (temp == "정상") {
+                        alert(temp);
+                        // $("#joinForm").submit();
+                    } else {
+                        alert(temp);
+                        $("#check").text(temp);
+                    }
+                }, error: function(e) {
+                    console.error(e);
+                }
+            });
+
+        });
+    });
+    </script>
+
 </head>
 <body>
 
@@ -17,7 +52,7 @@
     <div class="container">
         <div class="boxDesign2">
 
-            <form action="/join" method="post" class="colFormBox">
+            <form action="/join" id="joinForm" method="post" class="colFormBox">
 
                 <span class="alertInput">* 아이디/비밀번호/이메일은 필수입력사항입니다.</span>
                 <div class="inputBox">
@@ -37,9 +72,9 @@
                     <span>이메일</span>
                     <input type="text" id="email" name="email" class="lenL" autocomplete="off" spellcheck="false"><br>
                 </div>
-                <span class="alertInput">경고메세지</span>
+                <div id="check" class="alertInput">경고메세지</div>
 
-                <button type="submit" class="joinBtn">회원가입</button>
+                <button type="button" id="joinBtn" class="joinBtn">회원가입</button>
 
             </form>
 

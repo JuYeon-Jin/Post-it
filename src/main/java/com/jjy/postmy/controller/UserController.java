@@ -5,6 +5,8 @@ import com.jjy.postmy.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -29,11 +31,19 @@ public class UserController {
         return "redirect:/mainpage";
     }
 
+    // 회원가입 전 예외처리
+    @PostMapping("/joinCheck")
+    @ResponseBody
+    public String joinCheck(@RequestBody UserReqDto userReqDto) {
+        String result = userService.joinCheck();
+        return result;
+    }
+
     // 회원가입
     @PostMapping("/join")
     public String join(UserReqDto userReqDto) {
-        String result = userService.join(userReqDto);
-        return result;
+        userService.join(userReqDto);
+        return "redirect:/mainpage";
     }
 
     // 아이디 찾기

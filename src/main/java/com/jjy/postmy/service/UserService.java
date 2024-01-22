@@ -51,13 +51,16 @@ public class UserService {
     }
 
     // 회원가입
-    public String join(UserReqDto userReqDto) {
+    public void join(UserReqDto userReqDto) {
         User user = new User();
         userDao.makePin();
         user.joinToDto(userReqDto, userDao.newPinNo());
         userDao.joinUser(user);
         userDao.setNickName(user);
+    }
 
-        return "/mainpage";
+    // 회원가입 예외처리
+    public String joinCheck() {
+        return "정상";
     }
 }

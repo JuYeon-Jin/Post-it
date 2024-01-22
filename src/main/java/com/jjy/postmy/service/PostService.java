@@ -1,8 +1,10 @@
 package com.jjy.postmy.service;
 
 import com.jjy.postmy.dao.PostDao;
+import com.jjy.postmy.dto.PostReqDto;
 import com.jjy.postmy.dto.PostRspDto;
 import com.jjy.postmy.vo.Post;
+import com.jjy.postmy.vo.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +40,16 @@ public class PostService {
             posts.add(postRspDto);
         }
         return posts;
+    }
+
+    public void insertPost(PostReqDto postReqDto) {
+        HttpSession session = request.getSession();
+        String pinNo = (String)session.getAttribute("pinNo");
+
+        Post post = new Post();
+        post.dtoToPost(postReqDto, pinNo);
+
+        postDao.insertPost(post);
     }
 
 }

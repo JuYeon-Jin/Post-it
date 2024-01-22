@@ -10,5 +10,3 @@ VALUES ('ee3a2428-b5bb-11ee-b788-21cc9dac88a2', '제목4', '내용4', '2024-01-2
 INSERT INTO POST (pinNo, title, content, dueDate)
 VALUES ('ee3a2428-b5bb-11ee-b788-21cc9dac88a2', '제목5', '내용5', '2024-02-03 18:00:00');
 -- 완료
-
-

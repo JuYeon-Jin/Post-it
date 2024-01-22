@@ -6,12 +6,13 @@
 </head>
 <body>
 
-<form action="/newPost" method="post" id="writePostForm" class="postBox">
+<!--  controller 는 id 가 아니라 name 으로 데이터를 받는다.  -->
+<form action="/insertPost" method="post" class="postBox">
     <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
-    <input type="text" id="title" class="postTitle">
-    <textarea id="content" class="postContent"></textarea>
-    <input type="text" id="endDate" class="postDate" placeholder="2024-01-24 18:00:00">
-    <button type="button" class="writePostBtn" onclick="writePost()">작성완료</button>
+    <input type="text" id="title" name="title" class="postTitle">
+    <textarea id="content" name="content" class="postContent"></textarea>
+    <input type="text" id="dueDate" name="dueDate" class="postDate" placeholder="2024-01-24 18:00:00">
+    <button type="submit" class="writePostBtn">작성완료</button>
 </form>
 
 </body>
