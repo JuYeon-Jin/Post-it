@@ -29,7 +29,7 @@ public class IndexController {
     @GetMapping("/test")
     public String findTestPage() { return "test"; }
 
-    // 테스트 페이지 이동
+    // 게시글 작성 페이지 이동
     @GetMapping("/popupThyme")
     public String popupPage() { return "/post/popup"; }
 }

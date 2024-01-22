@@ -117,7 +117,7 @@ a:active {
     margin-bottom: 30px;
 }
 
-.postDesign {
+.postsDesign {
     width: 200px;
     height: 180px;
     margin: 15px;
@@ -129,48 +129,106 @@ a:active {
     border: none;
     border-radius: 5px; }
 
-.endDate {
+.postsEndDate {
     height: 10%;
     padding: 0 10px;
 }
 
-.endDateText {
+.postsEndDateText {
     color: gray;
     font-family: 'Pretendard';
     font-size: 10pt;
 }
 
-.postTitle {
+.postsTitle {
     height: 76%;
     padding: 0 10px;
     text-align:center;
 }
 
-.postTitleText {
+.postsTitleText {
     font-family: 'Pretendard';
     font-size: 14pt;
 }
 
 
 /*  새로 추가되는 내용  */
+.makeNewPostBtn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 20px;
+}
+
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 투명도 50% */
+    background-color: rgba(255, 255, 255, 0.4); /* 투명도 50% */
     display: none;
+    z-index: 1;
 }
 
-.popup {
+.popup {;
+    /* 화면 정가운데에 정확히 위치시키는 css 세트 */
+    top: 50%;                           /* 세트 1 */
+    left: 50%;                          /* 세트 2 */
+    transform: translate(-50%, -50%);   /* 세트 3 */
     position: fixed;
     width: 300px;
-    height: 300px;
-    background-color: lightgray;
-    border: 2px solid black;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 340px;
+    background-color: rgba(71, 98, 80, 0.6);    /* 1에 가까울수록 진해짐 */
+    border: none;
+    border-radius: 5px;
     display: none;
+    z-index: 2;
+ }
+
+.writePostForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.postTitle,
+.postContent,
+.postEndDate {
+    font-family: 'Pretendard';
+    width: 250px;
+    border: none;
+    border-radius: 3px;
+    background-color: white;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.postTitle {
+    height: 24px;
+}
+
+.postContent {
+    height: 160px;
+    resize: none; /* 크기 조정 비활성화 */
+}
+
+
+
+
+
+.writePostFormCloseBtn {
+    font-family: 'Pretendard';
+    font-size: 16pt;
+    margin-left: auto;
+    background: transparent; /* 배경을 투명하게 설정 */
+    border: none;
+}
+
+.writePostFormCloseBtn:hover {
+    color: white;
+}
+
+.writePostBtn {}

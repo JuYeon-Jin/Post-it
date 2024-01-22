@@ -2,13 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>writePopup</title>
 </head>
 <body>
 
-<div id="popup1" class="popup1">
-    <div id="popupContent">타임리프 팝업</div>
-</div>
+<form action="/newPost" method="post" id="writePostForm" class="postBox">
+    <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
+    <input type="text" id="title" class="postTitle">
+    <textarea id="content" class="postContent"></textarea>
+    <input type="text" id="endDate" class="postDate" placeholder="2024-01-24 18:00:00">
+    <button type="button" class="writePostBtn" onclick="writePost()">작성완료</button>
+</form>
 
 </body>
 </html>

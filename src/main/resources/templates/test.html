@@ -6,48 +6,66 @@
     <link rel="stylesheet" type="text/css" href="/css/test.css">
 
     <script>
-        function showPopup() {
-            alert("showPopup");
 
-            var popup = document.getElementById('popup');
-            if (popup) {
-                popup.style.display = 'block';
-            }
-        }
+    // 현재 파일의 div에 외부 HTML 내용을 삽입하는 함수
+    async function insertExternalHtmlIntoDiv(divId, externalHtmlPath) {
+        // alert("버튼 클릭");
 
-        // 외부 HTML을 텍스트로 가져오는 함수
-        async function fetchHtmlAsText(url) {
-            const response = await fetch(url);
+        try {
+            const divElement = document.getElementById(divId);
 
-            if (!response.ok) {
-                throw new Error(`Failed to fetch HTML from ${url}`);
+            if (!divElement) {
+                alert(`Element with ID ${divId} not found.`);
+                return;
             }
 
-            return await response.text();
+            const externalHtmlText = await fetchHtmlAsText(externalHtmlPath);
+            divElement.innerHTML = externalHtmlText;
+            showPopup();
+
+        } catch (error) {
+            alert(`Error: ${error.message}`);
         }
+    }
 
-        // 현재 파일의 div에 외부 HTML 내용을 삽입하는 함수
-        async function insertExternalHtmlIntoDiv(divId, externalHtmlPath) {
-            alert("버튼 클릭");
-            try {
-                const divElement = document.getElementById(divId);
-                alert("divElement = " + divElement);
+    // 외부 HTML(url)을 텍스트로 가져오는 함수
+    async function fetchHtmlAsText(url) {
+        const response = await fetch(url);
 
-                if (!divElement) {
-                    console.error(`Element with ID ${divId} not found.`);
-                    return;
-                }
+        // fetch 함수는 Promise를 반환하며, HTTP 응답을 나타내는 객체인 Response를 포함한다.
+        // Response 객체의 ok 속성은 응답이 성공적으로 이루어졌는지 여부를 나타낸다.
+        // 원인1. HTTP 응답이 404 Not Found 등의 클라이언트 오류를 반환한 경우
+        // 원인2. HTTP 응답이 5xx Server Error를 반환한 경우
+        // 원인3. 네트워크 문제 등으로 인해 HTTP 요청 자체가 실패한 경우
+        if (!response.ok) { alert("fetch 함수로부터 받은 HTTP 응답이 성공적이지 않음.");}
 
-                alert("함수 넘어옴1");
-                const externalHtmlText = await fetchHtmlAsText(externalHtmlPath);
-                divElement.innerHTML = externalHtmlText;
-                alert("함수 넘어옴2");
-                showPopup();
+        return await response.text();
+    }
 
-            } catch (error) {
-                console.error(`Error: ${error.message}`);
-            }
-        }
+    // 팝업 띄우기
+    function showPopup() {
+        var popup = document.getElementById('popup');
+        var overlay = document.getElementById('overlay');
+
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+    }
+
+    // 팝업 닫기
+    function closeForm() {
+        var popup = document.getElementById('popup');
+        var overlay = document.getElementById('overlay');
+
+        overlay.style.display = 'none';
+        popup.style.display = 'none';
+    }
+
+    // 글 작성
+    function writePost() {
+        var form = document.getElementById("writePost");
+        alert("testHtml 전송");
+        // form.submit();
+    }
 
     </script>
 
@@ -66,25 +84,27 @@
 
         <div class="postArea">
 
-            <div class="postDesign">
-            <div class="endDate"><span class="endDateText">2024-01-22 18:00:00</span></div>
-            <div class="postTitle"><span>제목1</span></div></div>
-            <div class="postDesign">
-            <div class="endDate"><span class="endDateText">2024-01-22 18:00:00</span></div>
-            <div class="postTitle"><span>제목2</span></div></div>
-            <div class="postDesign">
-            <div class="endDate"><span class="endDateText">2024-01-22 18:00:00</span></div>
-            <div class="postTitle"><span>제목3</span></div></div>
+            <div class="postsDesign">
+            <div class="postsEndDate"><span class="postsEndDateText">2024-01-22 18:00:00</span></div>
+            <div class="postsTitle"><span>제목1</span></div></div>
+            <div class="postsDesign">
+            <div class="postsEndDate"><span class="postsEndDateText">2024-01-22 18:00:00</span></div>
+            <div class="postsTitle"><span>제목2</span></div></div>
+            <div class="postsDesign">
+            <div class="postsEndDate"><span class="postsEndDateText">2024-01-22 18:00:00</span></div>
+            <div class="postsTitle"><span>제목3</span></div></div>
 
-            <div class="postDesign"><button id="aa" onclick="showPopup()"> 새글쓰기 </button></div>
-            <button onclick="insertExternalHtmlIntoDiv('popup', '/popupThyme')">외부 HTML 삽입</button>
+            <div class="postsDesign">
+                <button id="makeNewBtn" class="makeNewPostBtn"
+                        onclick="insertExternalHtmlIntoDiv('popup', '/popupThyme')">+</button>
+            </div>
+
 
         </div><!-- end.postArea -->
     </div><!-- end.container -->
 
-    <div id="popup" class="popup">짜잔
-        <div></div>
-        <button>닫기</button></div>
+    <div id="popup" class="popup"></div>
+    <div id="overlay" class="overlay"></div>
 
     <!-- 풋터 -->
     <div class="footer"><div th:include="footer"></div></div>
