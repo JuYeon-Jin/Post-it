@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>writePopup</title>
+</head>
+<body>
+
+<form action="/newPost" method="post" id="writePostForm" class="postBox">
+    <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
+    <input type="text" id="title" class="postTitle">
+    <textarea id="content" class="postContent"></textarea>
+    <input type="text" id="endDate" class="postDate" placeholder="2024-01-24 18:00:00">
+    <button type="button" class="writePostBtn" onclick="writePost()">작성완료</button>
+</form>
+
+</body>
+</html>

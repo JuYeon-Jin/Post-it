@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>post !t:회원가입</title>
+    <link rel="stylesheet" type="text/css" href="/css/frame.css">
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
+</head>
+<body>
+
+<div class="wrapper">
+<!-- 헤더 -->
+<div class="header"><div th:include="header"></div></div>
+
+
+    <!-- 컨테이너 -->
+    <div class="container">
+        <div class="boxDesign2">
+
+            <form action="/join" method="post" class="colFormBox">
+
+                <span class="alertInput">* 아이디/비밀번호/이메일은 필수입력사항입니다.</span>
+                <div class="inputBox">
+                    <!-- 아이디 -->
+                    <span>아이디</span>
+                    <input type="text" id="id" name="id" class="lenL"
+                           autocomplete="off" spellcheck="false" placeholder="4~8자의 영문/숫자"><br>
+                    <!-- 비밀번호 -->
+                    <span>비밀번호</span>
+                    <input type="text" id="password" name="password" class="lenL"
+                           autocomplete="off" spellcheck="false" placeholder="4~8자의 영문/숫자"><br>
+                    <!-- 닉네임 -->
+                    <span>닉네임</span>
+                    <input type="text" id="nickName" name="nickName" class="lenL"
+                           autocomplete="off" spellcheck="false" placeholder="2~4자의 영문/숫자"><br>
+                    <!-- 이메일 -->
+                    <span>이메일</span>
+                    <input type="text" id="email" name="email" class="lenL" autocomplete="off" spellcheck="false"><br>
+                </div>
+                <span class="alertInput">경고메세지</span>
+
+                <button type="submit" class="joinBtn">회원가입</button>
+
+            </form>
+
+        </div><!-- end.boxDesign2 -->
+    </div><!-- end.container -->
+
+
+<!-- 풋터 -->
+<div class="footer"><div th:include="footer"></div></div>
+</div>
+
+</body>
+</html>
