@@ -1,8 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 
-body {
-    background-color: #e3e8e5;
-}
+body { background-color: #e3e8e5; }
+span, button, input { font-family: 'Pretendard'; }
 
 /* 핵심 기능을 담는 외곽 box 디자인 */
 .boxDesign1,
@@ -18,11 +17,12 @@ body {
 .boxDesign1 {
     position: absolute;
     top: 8vh;
-    height: 200px; }
+    min-height: 200px; }
 
 .boxDesign2 {
     margin: 4vh 0 8vh 0;
-    height: 380px; }
+    padding-top: 25px;
+    min-height: 340px; }
 
 
 /* 폼 내부 구성 레이아웃 */
@@ -44,25 +44,33 @@ body {
 .inputBox {
     margin: 10px; }
 
-.inputBox span,
+.inputBox .text,
 .inputBox input {
-    font-family: 'Pretendard';
     letter-spacing: 0.02em;
     display: inline-block; }
 
-.inputBox span {
+.inputBox .text {
     width: 85px;
-    font-size: 16pt;
+    font-size: 16pt; }
+
+.boxDesign1 .text {
     padding-top: 2px;
     margin: 15px 5px 3px 1px; }
 
+.boxDesign2 .text {
+    margin: 5px 1px 3px 1px; }
+
 .inputBox input {
+    font-family: 'Pretendard';
     height: 30px;
-    padding-left: 5px;
-    font-size: 12pt;
+    padding-left: 10px;
+    font-size: 11pt;
     border: none;
     border-radius: 3px;
     background-color: #E3E4E4; }
+
+.inputBox input::placeholder {
+    font-size: 10pt; }
 
 .inputBox input:focus {
     outline: 2px solid #476250;
@@ -75,18 +83,18 @@ body {
     width: 160px; }
 
 
-/* 경고 메시지 */
-.alertInput {
+/* 검증 메시지 */
+.checkText {
+    padding-left: 94px;
     color: red;
-    font-family: 'Pretendard';
-    font-size: 10pt;
-
-}
+    font-size: 9pt;
+    display: block;
+    margin-top: 3px;
+    margin-bottom: -10px;}
 
 
 /* 버튼 공통 디자인 */
 button {
-    font-family: 'Pretendard';
     font-size: 13pt;
     letter-spacing: 0.1em;
     color: white;
@@ -112,12 +120,11 @@ button:active {
 .joinBtn {
     height: 36px;
     width: 140px;
-    margin: 20px 0; }
+    margin: 20px 0 24px; }
 
 
 /* 메인페이지에서만 사용되는 클래스 */
 .etcBox {
-    font-family: 'Pretendard';
     font-size: 14pt;
     letter-spacing: 0.02em;
     text-align: center;

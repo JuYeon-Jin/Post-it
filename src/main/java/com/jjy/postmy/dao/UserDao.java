@@ -26,4 +26,8 @@ public interface UserDao {
     @Update("UPDATE UserPin SET nickName = #{user.nickName} WHERE pinNo = #{user.pinNo}")
     public void setNickName(@Param("user") User a);
 
+    // 중복 아이디 확인
+    @Select("SELECT count(*) FROM Users where id = #{id}")
+    public int countId(@Param("id") String a);
+
 }

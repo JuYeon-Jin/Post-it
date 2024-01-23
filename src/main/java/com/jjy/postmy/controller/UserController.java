@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Map;
+
 @Controller
 public class UserController {
 
@@ -31,12 +33,30 @@ public class UserController {
         return "redirect:/mainpage";
     }
 
+    // 회원가입 전 입력 검증 이벤트
+    @PostMapping("/beforeJoin")
+    @ResponseBody
+    public String beforeJoinCheck(@RequestBody UserReqDto userReqDto) {
+        String result = "";
+
+        if (userReqDto.getId() != null) {
+            result = userService.beforeCheck_id(userReqDto);
+        } else if (userReqDto.getPassword() != null) {
+            result = userService.beforeCheck_pw(userReqDto);
+        } else if (userReqDto.getNickName() != null) {
+            result = userService.beforeCheck_nickName(userReqDto);
+        } else if (userReqDto.getEmail() != null) {
+            if (!userService.beforeCheck_email(userReqDto)) { result = "올바른 이메일 형식이 아닙니다."; }
+        }
+
+        return result;
+    }
+
     // 회원가입 전 예외처리
     @PostMapping("/joinCheck")
     @ResponseBody
-    public String joinCheck(@RequestBody UserReqDto userReqDto) {
-        String result = userService.joinCheck();
-        return result;
+    public boolean joinCheck(@RequestBody UserReqDto userReqDto) {
+        return userService.joinCheck(userReqDto);
     }
 
     // 회원가입

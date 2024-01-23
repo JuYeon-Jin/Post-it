@@ -8,9 +8,49 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
+
     $(function() {
-        $("#joinBtn").click(function() {
-            alert("클릭");
+
+    // 반복되는 부분 추출
+    function sendBlurRequest(key, value, resultId) {
+        var jsonData = {};
+        jsonData[key] = value;
+
+        $.ajax({
+            type: "POST",
+            url: "/beforeJoin",
+            data: JSON.stringify(jsonData),
+            contentType: "application/json",
+            success: function (result) {
+                $("#" + resultId)
+                    .text(result)
+                    .css({
+                        'color': result.indexOf("사용가능한") !== -1 ? 'green' : 'red'
+                    });
+            },
+            error: function (e) {
+                console.error(e);
+            }
+        });
+    } // 반복되는 부분 추출 끝
+
+    // id, pw, nickName, email - blur 이벤트
+    $("#id").blur(function () {
+        sendBlurRequest($(this).attr("id"), $(this).val(), "idCheck");
+    });
+    $("#password").blur(function () {
+        sendBlurRequest($(this).attr("id"), $(this).val(), "pwCheck");
+    });
+    $("#nickName").blur(function () {
+        sendBlurRequest($(this).attr("id"), $(this).val(), "nnCheck");
+    });
+    $("#email").blur(function () {
+        sendBlurRequest($(this).attr("id"), $(this).val(), "emailCheck");
+    });
+
+
+    // 클릭 회원가입
+    $("#joinBtn").click(function() {
 
             var jsonJoin = {};
             var formData = $("#joinForm").serializeArray();
@@ -23,20 +63,18 @@
                 url: "/joinCheck",
                 data: JSON.stringify(jsonJoin),
                 contentType:  "application/json",
-                success: function(temp) {
-                    if (temp == "정상") {
-                        alert(temp);
-                        // $("#joinForm").submit();
+                success: function(result) {
+                    if (result) {
+                        $("#joinForm").submit();
                     } else {
-                        alert(temp);
-                        $("#check").text(temp);
+                        alert("회원가입 불가");
                     }
                 }, error: function(e) {
                     console.error(e);
                 }
             });
 
-        });
+    }); // 클릭 회원가입 끝
     });
     </script>
 
@@ -54,27 +92,31 @@
 
             <form action="/join" id="joinForm" method="post" class="colFormBox">
 
-                <span class="alertInput">* 아이디/비밀번호/이메일은 필수입력사항입니다.</span>
                 <div class="inputBox">
                     <!-- 아이디 -->
-                    <span>아이디</span>
+                    <span class="text">아이디</span>
                     <input type="text" id="id" name="id" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="4~8자의 영문/숫자"><br>
+                           autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
+                    <span id="idCheck" class="checkText"></span><br>
                     <!-- 비밀번호 -->
-                    <span>비밀번호</span>
-                    <input type="text" id="password" name="password" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="4~8자의 영문/숫자"><br>
+                    <span class="text">비밀번호</span>
+                    <input type="password" id="password" name="password" class="lenL"
+                           autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
+                    <span id="pwCheck" class="checkText"></span><br>
                     <!-- 닉네임 -->
-                    <span>닉네임</span>
+                    <span class="text">닉네임</span>
                     <input type="text" id="nickName" name="nickName" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="2~4자의 영문/숫자"><br>
+                           autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
+                    <span id="nnCheck" class="checkText"></span><br>
                     <!-- 이메일 -->
-                    <span>이메일</span>
-                    <input type="text" id="email" name="email" class="lenL" autocomplete="off" spellcheck="false"><br>
+                    <span class="text">이메일</span>
+                    <input type="text" id="email" name="email" class="lenL"
+                           autocomplete="off" spellcheck="false" placeholder="선택입력"><br>
+                    <span id="emailCheck" class="checkText"></span>
                 </div>
-                <div id="check" class="alertInput">경고메세지</div>
 
-                <button type="button" id="joinBtn" class="joinBtn">회원가입</button>
+                <button type="button" id="joinBtn" class="joinBtn">회원가입</button><br>
+                <span id="finalCheck" class="checkText"></span>
 
             </form>
 
