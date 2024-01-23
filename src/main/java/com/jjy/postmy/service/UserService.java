@@ -2,13 +2,15 @@ package com.jjy.postmy.service;
 
 import com.jjy.postmy.dao.UserDao;
 import com.jjy.postmy.dto.UserReqDto;
+import com.jjy.postmy.dto.UserRspDto;
 import com.jjy.postmy.vo.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Service
@@ -62,7 +64,7 @@ public class UserService {
         userDao.setNickName(user);
     }
 
-    // 회원가입 예외처리
+    // 회원가입
     public boolean joinCheck(UserReqDto userReqDto) {
         boolean result = false;
 
@@ -71,6 +73,23 @@ public class UserService {
             && beforeCheck_nickName(userReqDto).equals("사용가능한 닉네임입니다.")
             && beforeCheck_email(userReqDto)) {
             result = true;
+        }
+
+        return result;
+    }
+
+    // 아이디: 회원가입 예외처리
+    public String beforeCheck(UserReqDto userReqDto) {
+        String result = "";
+
+        if (userReqDto.getId() != null) {
+            result = beforeCheck_id(userReqDto);
+        } else if (userReqDto.getPassword() != null) {
+            result = beforeCheck_pw(userReqDto);
+        } else if (userReqDto.getNickName() != null) {
+            result = beforeCheck_nickName(userReqDto);
+        } else if (userReqDto.getEmail() != null) {
+            if (!beforeCheck_email(userReqDto)) { result = "올바른 이메일 형식이 아닙니다."; }
         }
 
         return result;
@@ -164,5 +183,47 @@ public class UserService {
             }
         }
         return result;
+    }
+
+    // 아이디 찾기
+    public List<UserRspDto> findId(UserReqDto userReqDto) {
+        List<UserRspDto> usersId = new ArrayList<UserRspDto>();
+
+        for (User user: userDao.findId(userReqDto.getEmail())) {
+            UserRspDto userRspDto = new UserRspDto();
+            userRspDto.VoToDto(user);
+            usersId.add(userRspDto);
+        }
+
+        return usersId;
+    }
+
+    // 회원번호 찾기
+    public String findUserNo(UserReqDto userReqDto) {
+        User user = new User();
+        user.dtoToVo(userReqDto);
+        return userDao.findUserNo(user);
+    }
+
+    // 비밀번호 수정 검증
+    public boolean updateCheck_pw(UserReqDto userReqDto) {
+        boolean result = false;
+        String pw = userReqDto.getPassword();
+
+        if (!emptyCheck(pw) && enCheck(pw) && lengthCheck(pw) >= 4 && lengthCheck(pw) <= 12) {
+            System.out.println("!emptyCheck(pw) = " + !emptyCheck(pw));
+            System.out.println("enCheck(pw) = " + enCheck(pw));
+            System.out.println("lengthCheck(pw) = " + lengthCheck(pw));
+            result = true;
+        }
+
+        return result;
+    }
+
+    // 비밀번호 변경
+    public void updatePw(UserReqDto userReqDto) {
+        User user = new User();
+        user.dtoToVo(userReqDto);
+        userDao.updatePw(user);
     }
 }

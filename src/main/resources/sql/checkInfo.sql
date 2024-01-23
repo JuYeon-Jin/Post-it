@@ -11,7 +11,3 @@ SELECT * FROM POST;
 SELECT count(*) FROM UserPin;
 SELECT count(*) FROM Users;
 SELECT count(*) FROM POST;
-
-
-delete from users where userNo = '';
-delete from UserPin where pinNo = '';

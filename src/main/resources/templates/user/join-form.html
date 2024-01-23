@@ -52,27 +52,27 @@
     // 클릭 회원가입
     $("#joinBtn").click(function() {
 
-            var jsonJoin = {};
-            var formData = $("#joinForm").serializeArray();
-            $(formData).each(function(index, obj){
-                jsonJoin[obj.name] = obj.value;
-            });
+        var jsonJoin = {};
+        var formData = $("#joinForm").serializeArray();
+        $(formData).each(function(index, obj){
+            jsonJoin[obj.name] = obj.value;
+        });
 
-            $.ajax({
-                type: "POST",
-                url: "/joinCheck",
-                data: JSON.stringify(jsonJoin),
-                contentType:  "application/json",
-                success: function(result) {
-                    if (result) {
-                        $("#joinForm").submit();
-                    } else {
-                        alert("회원가입 불가");
-                    }
-                }, error: function(e) {
-                    console.error(e);
+        $.ajax({
+            type: "POST",
+            url: "/joinCheck",
+            data: JSON.stringify(jsonJoin),
+            contentType:  "application/json",
+            success: function(result) {
+                if (result) {
+                    $("#joinForm").submit();
+                } else {
+                    alert("회원가입 불가");
                 }
-            });
+            }, error: function(e) {
+                console.error(e);
+            }
+        });
 
     }); // 클릭 회원가입 끝
     });

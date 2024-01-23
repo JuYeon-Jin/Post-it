@@ -1,17 +1,21 @@
 package com.jjy.postmy.dto;
 
+import com.jjy.postmy.vo.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class UserReqDto {
+public class UserRspDto {
 
     private String pinNo;
     private String userNo;
     private String id;
-    private String password;
-    private String nickName;
-    private String email;
 
+    public UserRspDto() {
+    }
+
+    public void VoToDto(User user) {
+        this.id = user.getId();
+    }
 }

@@ -9,6 +9,7 @@ import lombok.Getter;
 public class User {
 
     private String pinNo;
+    private String userNo;
     private String id;
     private String password;
     private String nickName;
@@ -36,5 +37,13 @@ public class User {
         this.nickName = userReqDto.getNickName();
         this.email = userReqDto.getEmail();
         this.pinNo = newPinNo;
+    }
+
+    public void dtoToVo(UserReqDto userReqDto) {
+        this.id = userReqDto.getId();
+        this.password = userReqDto.getPassword();
+        this.userNo = userReqDto.getUserNo();
+        this.nickName = userReqDto.getNickName();
+        this.email = userReqDto.getEmail();
     }
 }

@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+
 public interface UserDao {
 
     // 로그인 (id, password 입력 → pinNo)
@@ -29,5 +31,17 @@ public interface UserDao {
     // 중복 아이디 확인
     @Select("SELECT count(*) FROM Users where id = #{id}")
     public int countId(@Param("id") String a);
+
+    // 이메일로 아이디 찾기
+    @Select("SELECT id FROM Users where email = #{email}")
+    public List<User> findId(@Param("email") String a);
+
+    // 아이디와 이메일로 userNo 가져오기
+    @Select("SELECT userNo FROM Users where id = #{user.id} and email = #{user.email}")
+    public String findUserNo(@Param("user") User a);
+
+    // userNo 로 비밀번호 업데이트
+    @Update("UPDATE USERS SET password = #{user.password} WHERE userNo = #{user.userNo};")
+    public void updatePw(@Param("user") User a);
 
 }

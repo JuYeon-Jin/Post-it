@@ -5,7 +5,8 @@ span, button, input { font-family: 'Pretendard'; }
 
 /* 핵심 기능을 담는 외곽 box 디자인 */
 .boxDesign1,
-.boxDesign2 {
+.boxDesign2,
+.boxDesign3 {
     width: 460px;
     display: flex;
     flex-direction: column;
@@ -24,6 +25,12 @@ span, button, input { font-family: 'Pretendard'; }
     padding-top: 25px;
     min-height: 340px; }
 
+.boxDesign3 {
+    position: absolute;
+    top: 8vh;
+    min-height: 200px;
+    padding: 10px 0;
+}
 
 /* 폼 내부 구성 레이아웃 */
 .rowFormBox,
@@ -44,6 +51,7 @@ span, button, input { font-family: 'Pretendard'; }
 .inputBox {
     margin: 10px; }
 
+.inputBox .textL,
 .inputBox .text,
 .inputBox input {
     letter-spacing: 0.02em;
@@ -53,15 +61,22 @@ span, button, input { font-family: 'Pretendard'; }
     width: 85px;
     font-size: 16pt; }
 
-.boxDesign1 .text {
+.boxDesign1 .text,
+.boxDesign3 .text {
     padding-top: 2px;
     margin: 15px 5px 3px 1px; }
 
 .boxDesign2 .text {
     margin: 5px 1px 3px 1px; }
 
+.inputBox .textL {
+    width: 110px;
+    padding-right: 15px;
+    font-size: 16pt;
+    margin-top: 15px;
+}
+
 .inputBox input {
-    font-family: 'Pretendard';
     height: 30px;
     padding-left: 10px;
     font-size: 11pt;
@@ -84,14 +99,18 @@ span, button, input { font-family: 'Pretendard'; }
 
 
 /* 검증 메시지 */
-.checkText {
-    padding-left: 94px;
+.checkText,
+.checkText2 {
     color: red;
     font-size: 9pt;
     display: block;
     margin-top: 3px;
     margin-bottom: -10px;}
 
+.checkText {
+    padding-left: 94px; }
+.checkText2 {
+    padding-left: 134px; }
 
 /* 버튼 공통 디자인 */
 button {
@@ -122,8 +141,13 @@ button:active {
     width: 140px;
     margin: 20px 0 24px; }
 
+.findBtn {
+    height: 30px;
+    padding: 0 20px;
+    margin: 17px 0 12px;
+}
 
-/* 메인페이지에서만 사용되는 클래스 */
+/* 일부 페이지만 사용되는 클래스 */
 .etcBox {
     font-size: 14pt;
     letter-spacing: 0.02em;
@@ -132,3 +156,41 @@ button:active {
 
 .etcBox a {
     margin: 5px; }
+
+.btnArea {
+    text-align: center;
+    margin: 23px 15px; }
+
+.btnArea button {
+    margin-right: 10px; }
+
+.idList {
+    padding-top: 20px;}
+
+
+/* 카운트다운 css */
+.infoArea {
+    font-size: 15pt;
+    letter-spacing: 0.02em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; }
+
+.countArea {
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    border: none;
+    border-radius: 50%;
+    margin-top: 17px;
+    background-color: #0a3711;
+    color: white;
+    font-size: 20pt;
+    font-weight:bold;
+    font-family: 'Pretendard'; }
+
+.redColor {
+    color: red; }

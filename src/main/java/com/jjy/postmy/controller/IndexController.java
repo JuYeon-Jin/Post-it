@@ -17,6 +17,10 @@ public class IndexController {
     @GetMapping("/join-form")
     public String joinPage() { return "/user/join-form"; }
 
+    // 회원가입 완료 페이지
+    @GetMapping("/welcomenew")
+    public String completeJoin() { return "/user/completeJoin"; }
+
     // 아이디 찾기 페이지 이동
     @GetMapping("/findid-form")
     public String findIdPage() { return "/user/findid-form"; }

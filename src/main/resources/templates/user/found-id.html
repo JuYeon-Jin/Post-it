@@ -2,11 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>post !t:비밀번호</title>
+    <title>post !t:아이디</title>
     <link rel="stylesheet" type="text/css" href="/css/frame.css">
     <link rel="stylesheet" type="text/css" href="/css/user.css">
-
-
 </head>
 <body>
 
@@ -19,10 +17,9 @@
     <div class="container">
         <div class="boxDesign3">
 
-
-            <div class="infoArea idList">
+            <div th:each="user : ${users}" class="infoArea idList">
                 <div>
-                    <span>tes**1</span>
+                    <span th:text="${user.id}"></span>
                 </div>
             </div>
 
