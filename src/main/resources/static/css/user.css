@@ -1,7 +1,11 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
-
-body { background-color: #e3e8e5; }
-span, button, input { font-family: 'Pretendard'; }
+/* 체크무늬-마름모 */ /* 정사각형 체크무늬 필요 */
+body {
+    background-color: #e3e8e5;
+    background-image: linear-gradient(45deg, #C9D7CD 25%, transparent 25%, transparent 75%, #C9D7CD 75%, #C9D7CD),
+                    linear-gradient(135deg, #C9D7CD 25%, transparent 25%, transparent 75%, #C9D7CD 75%, #C9D7CD);
+    background-position: 0 0 60px 60px;
+    background-size: 120px 120px;
+}
 
 /* 핵심 기능을 담는 외곽 box 디자인 */
 .boxDesign1,
@@ -166,6 +170,11 @@ button:active {
 
 .idList {
     padding-top: 20px;}
+
+.infoError {
+    display: block;
+    margin-top: 30px;
+}
 
 
 /* 카운트다운 css */

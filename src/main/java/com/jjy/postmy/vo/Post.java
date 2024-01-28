@@ -24,6 +24,10 @@ public class Post {
         this.title = postReqDto.getTitle();
         this.content = postReqDto.getContent();
         this.dueDate = postReqDto.getDueDate();
+    }
 
+    public void postNoStrToInt(String postNo, String pinNo) {
+        this.postNo = Integer.parseInt(postNo);
+        this.pinNo = pinNo;
     }
 }

@@ -18,6 +18,10 @@ public interface PostDao {
             " VALUES (#{post.pinNo}, #{post.title}, #{post.content}, #{post.dueDate})")
     public void insertPost(@Param("post") Post a);
 
+    // 게시물 조회
+    @Select("SELECT postNo, title, content, dueDate FROM POST WHERE pinNo = #{post.pinNo} AND postNo = #{post.postNo}")
+    public Post onePost(@Param("post") Post a);
+
     // 게시물 수정
 
     // 게시물 삭제

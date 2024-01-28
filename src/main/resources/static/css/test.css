@@ -1,179 +1,106 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
-@font-face {
-    font-family: 'Pretendard-400';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;  /* 01/21 추가 */
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    margin: auto;
-}
-
-@media (max-width: 550px) and (max-height: 580px) {
-    body {
-        width: 550px;
-        height: 580px;
-        overflow: auto;
-    }
-}
-
-@media (max-width: 550px) and (min-height: 580px) {
-    body {
-        width: 550px;
-        overflow-x: auto;
-        overflow-y: hidden;
-    }
-}
-
-@media (min-width: 550px) and (max-height: 580px) {
-    body {
-        height: 580px;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-}
-
-.header, .container, .footer {
-    width: 100%;
-    margin: auto;
+.centerArea {
+    /*background-color: red;*/
     display: flex;
     justify-content: center;
+    padding: 50px;
 }
 
-.header {
-    height: 30%;
-    min-height: 200px;  /* 01/21 추가 */
-    align-items: flex-end;
-}
-
-.container {
-    flex: 1;
-    flex-direction: column;
-    align-items: center;
-    position: relative; /* 삭제불가-mainpage 에서 사용 */
-}
-
-.footer {
-    height: 80px;
-    min-height: 80px;  /* 01/21 추가 */
-    align-items: center;
-    background-color: #C9D7CD;
-}
-
-a {
-    font-family: 'Pretendard-400';
-    text-decoration: none;
-    color: black;
-}
-
-a:hover {
-    color: #215421;
-    font-weight: bold;
-}
-
-a:active {
-    color: #f5e400;
-    font-weight: bold;
-}
-
-/*
-.leftcontainer {}
-.rightcontainer {}
-*/
-
-.headerMenu {
-    width: 100%;
-}
-
-.headerLink {
-    color: black;
-    font-family: 'Kalam', cursive;
-    font-size: 64pt;
-}
-
-.footerLink {
-    padding: 0 15px 0 15px;
-}
-
+/* 컨테이너 내부 게시물 공간 전체 flex-wrap: wrap 을 위해 만들었음  */
 .postArea {
+    /*background-color: blue;*/
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    margin-bottom: 30px;
-}
+    margin-bottom: 30px; }
 
-.postsDesign {
+/* 반복하는 영역 전체 (>tape, >memo) */
+.postsBox {
     width: 200px;
-    height: 180px;
+    height: 190px;
     margin: 15px;
-    gap: 10px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items : center;
+    flex-direction: column;
+    position: relative; }
+
+.tapeImg {
+    width: 110px;
+    display: block;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 1; }
+
+.newPosts,
+.memoBox {
+    width: 100%;
+    height: 158px;
     background-color: #DFE7E1;
     border: none;
-    border-radius: 5px; }
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    padding-top: 11px; }
 
-.postsEndDate {
-    height: 10%;
-    padding: 0 10px;
-}
+.newPosts {
+    align-items : center;
+    top: 22px; }
 
-.postsEndDateText {
+.memoBox {
+    flex-direction: column;
+    bottom: 0px;
+    gap: 10px; }
+
+/* 게시물 리스트 내용 css */
+.postsDate {
+    height: 15%;
+    padding: 0 10px; }
+
+.postsDate span {
     color: gray;
-    font-family: 'Pretendard';
-    font-size: 10pt;
-}
+    font-size: 10pt; }
 
 .postsTitle {
-    height: 76%;
-    padding: 0 10px;
-    text-align:center;
-}
+    height: 60%;
+    padding: 0 22px 0 30px;
+    letter-spacing: 0.1em;
+    line-height: 140%;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    margin-bottom: 20px; }
 
-.postsTitleText {
-    font-family: 'Pretendard';
-    font-size: 14pt;
-}
+.postsTitle span {
+    font-size: 14pt; }
 
-
-/*  새로 추가되는 내용  */
-.makeNewPostBtn {
+.newPosts button {
     width: 50px;
     height: 50px;
     border: none;
     border-radius: 50%;
     background-color: white;
-    font-size: 20px;
-}
+    font-size: 20px; }
 
+.newPosts button:hover {
+    background-color: #a8c3bc; }
+
+.newPosts button:active {
+    font-weight: bold;
+    color: #008080; }
+
+/* 새글 작성 폼 팝업 */
 .overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.4); /* 투명도 50% */
+    background-color: rgba(255, 255, 255, 0.6);
     display: none;
-    z-index: 1;
-}
+    z-index: 1; }
 
-.popup {;
+.popup {
     /* 화면 정가운데에 정확히 위치시키는 css 세트 */
     top: 50%;                           /* 세트 1 */
     left: 50%;                          /* 세트 2 */
@@ -185,50 +112,62 @@ a:active {
     border: none;
     border-radius: 5px;
     display: none;
-    z-index: 2;
- }
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 2; }
 
-.writePostForm {
+
+/* 팝업 디자인 */
+.postBox {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
+    align-items: center; }
 
 .postTitle,
 .postContent,
-.postEndDate {
-    font-family: 'Pretendard';
+.postDate {
     width: 250px;
     border: none;
     border-radius: 3px;
     background-color: white;
     padding: 5px;
-    margin-top: 10px;
-}
+    margin-top: 10px; }
 
-.postTitle {
-    height: 24px;
-}
+.postTitle
+.postDate {
+    height: 28px; }
 
 .postContent {
-    height: 160px;
-    resize: none; /* 크기 조정 비활성화 */
-}
+    height: 140px;
+    resize: none; }
 
-
-
-
-
-.writePostFormCloseBtn {
-    font-family: 'Pretendard';
+.closePostBtn {
     font-size: 16pt;
     margin-left: auto;
-    background: transparent; /* 배경을 투명하게 설정 */
-    border: none;
-}
+    background: transparent;
+    border: none; }
 
-.writePostFormCloseBtn:hover {
+.closePostBtn:hover {
     color: white;
 }
 
-.writePostBtn {}
+.writePostBtn {
+    font-size: 11pt;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    height: 28px;
+    width: 100px;
+    margin-top: 20px; }
+
+.writePostBtn:hover {
+    background-color: #DFE7E1;
+}
+
+.writePostBtn:active {
+    color: #8FBC8F;
+    font-weight: bold;
+}
+
+

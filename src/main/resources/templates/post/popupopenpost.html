@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>openPost</title>
+</head>
+<body>
+
+<form action="" method="post" class="postBox">
+    <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
+    <div class="readTitle"><span th:text="${post.title}"></span></div>
+    <div class="readContent"><span th:text="${post.content}"></span></div>
+    <div class="readDueDate"><span th:text="${post.dueDate}"></span></div>
+    <button type="button" class="" th:postNoId="${post.postNo}"
+            th:onclick="updatePost(this.getAttribute('postNoId'))">수정</button>
+    <button type="button" class="" th:postNoId="${post.postNo}"
+            th:onclick="updatePost(this.getAttribute('postNoId'))">삭제</button>
+</form>
+
+
+</body>
+</html>

@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<meta charset="UTF-8">
 <head>
-    <title>post !t:error</title>
+    <meta charset="UTF-8">
+    <title>post !t:실패</title>
+    <link rel="stylesheet" type="text/css" href="/css/frame.css">
+    <link rel="stylesheet" type="text/css" href="/css/user.css">
 </head>
 <body>
-잘못된 아이디, 비밀번호 입니다.
-<a href="/mainpage">메인페이지로 </a>
+
+<div class="wrapper">
+
+    <div class="header">
+        <div th:include="header"></div>
+    </div>
+
+    <div class="container">
+        <div class="boxDesign3">
+
+            <div class="infoArea">
+                <span class="infoError">존재하지 않는 회원입니다.</span>
+            </div>
+
+            <div class="btnArea">
+                <a href="/mainpage"><button type="submit" class="findBtn">로그인</button></a>
+                <a href="/findid-form"><button type="submit" class="findBtn">아이디 찾기</button></a>
+            </div>
+
+        </div><!-- end.boxDesign1 -->
+    </div><!-- end.container -->
+
+    <div class="footer">
+        <div th:include="footer"></div>
+    </div>
+
+</div>
+
 </body>
 </html>

@@ -2,43 +2,119 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>post !t:비밀번호</title>
+    <title>post !t</title>
     <link rel="stylesheet" type="text/css" href="/css/frame.css">
-    <link rel="stylesheet" type="text/css" href="/css/user.css">
+    <link rel="stylesheet" type="text/css" href="/css/test.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
 
+        function clickEvent() {
+            var divValue = $(this).data('value');
+            alert("클릭 " + divValue);
+        }
+
+    </script>
 </head>
 <body>
 
 <div class="wrapper">
+    <!-- 헤더 -->
+    <div class="header"><div th:include="header"></div></div>
 
-    <div class="header">
-        <div th:include="header"></div>
-    </div>
 
+    <!-- 컨테이너 -->
     <div class="container">
-        <div class="boxDesign3">
+    <div class="centerArea">
+        <div class="postArea">
 
-
-            <div class="infoArea idList">
-                <div>
-                    <span>tes**1</span>
+            <!-- 게시물 리스트 반복 출력 -->
+            <div class="postsBox">
+            <img src="/img/tapeS.png" class="tapeImg">
+            <div class="memoBox" data-value="Hello, World!" onclick="clickEvent('${post.postNo}')">
+                <div class="postsDate">
+                    <span>2024-01-30 18:00:00</span>
+                </div>
+                <div class="postsTitle">
+                    <span>내용1내용1내용1내용1내용1내용1내용1내용1</span>
                 </div>
             </div>
+            </div>
+            <div class="postsBox">
+                <img src="/img/tapeS.png" class="tapeImg">
+                <div class="memoBox">
+                    <div class="postsDate">
+                        <span>2024-01-30 18:00:00</span>
+                    </div>
+                    <div class="postsTitle">
+                        <span>내용내용내용내용내용내용내용내용내용내용내용내용</span>
+                    </div>
+                </div>
+            </div>
+            <div class="postsBox">
+                <img src="/img/tapeS.png" class="tapeImg">
+                <div class="memoBox">
+                    <div class="postsDate">
+                        <span>2024-01-30 18:00:00</span>
+                    </div>
+                    <div class="postsTitle">
+                        <span>내용1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="postsBox">
+                <img src="/img/tapeS.png" class="tapeImg">
+                <div class="memoBox">
+                    <div class="postsDate">
+                        <span>2024-01-30 18:00:00</span>
+                    </div>
+                    <div class="postsTitle">
+                        <span>내용1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="postsBox">
+                <img src="/img/tapeS.png" class="tapeImg">
+                <div class="memoBox">
+                    <div class="postsDate">
+                        <span>2024-01-30 18:00:00</span>
+                    </div>
+                    <div class="postsTitle">
+                        <span>내용1</span>
+                    </div>
+                </div>
+            </div>
+            <div class="postsBox">
+                <img src="/img/tapeS.png" class="tapeImg">
+                <div class="memoBox">
+                    <div class="postsDate">
+                        <span>2024-01-30 18:00:00</span>
+                    </div>
+                    <div class="postsTitle">
+                        <span>내용1</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 새글 쓰기 -->
 
-            <div class="btnArea">
-                <a href="/mainpage"><button type="submit" class="findBtn">로그인</button></a>
-                <a href="/findpw-form"><button type="submit" class="findBtn">비밀번호 찾기</button></a>
+            <div class="postsBox">
+            <img src="/img/tapeS.png" class="tapeImg">
+            <div class="newPosts">
+                <button id="newPostFormBtn" onclick="insertExternalHtmlIntoDiv('popup', '/popupThyme')"
+                >+</button>
+            </div>
             </div>
 
+            <div id="popup" class="popup"></div>
+            <div id="overlay" class="overlay"></div>
 
-        </div><!-- end.boxDesign1 -->
+        </div><!-- end.postArea -->
+    </div>
     </div><!-- end.container -->
 
-    <div class="footer">
-        <div th:include="footer"></div>
-    </div>
 
+    <!-- 풋터 -->
+    <div class="footer"><div th:include="footer"></div></div>
 </div>
 
 </body>

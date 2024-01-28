@@ -84,8 +84,6 @@ public class UserController {
     // 비밀번호 찾기 3 (비밀번호 변경하기)
     @PostMapping("/updatepw")
     public String updatePw(UserReqDto userReqDto) {
-        System.out.println("userReqDto = " + userReqDto.getUserNo());
-        System.out.println("userReqDto = " + userReqDto.getPassword());
         userService.updatePw(userReqDto);
         return "/user/updated-pw";
     }

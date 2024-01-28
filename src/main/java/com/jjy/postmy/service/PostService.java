@@ -1,5 +1,7 @@
 package com.jjy.postmy.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jjy.postmy.dao.PostDao;
 import com.jjy.postmy.dto.PostReqDto;
 import com.jjy.postmy.dto.PostRspDto;
@@ -25,7 +27,7 @@ public class PostService {
         this.request = request;
     }
 
-    // 작성 포스트 조회
+    // 포스트리스트 조회
     public List<PostRspDto> allPosts() {
         // 세션에서 pinNo 가져오기
         HttpSession session = request.getSession();
@@ -42,9 +44,12 @@ public class PostService {
         return posts;
     }
 
+    // 글 작성
     public void insertPost(PostReqDto postReqDto) {
         HttpSession session = request.getSession();
         String pinNo = (String)session.getAttribute("pinNo");
+        System.out.println("pinNo = " + pinNo);
+        System.out.println("postReqDto.getTitle = " + postReqDto.getTitle());
 
         Post post = new Post();
         post.dtoToPost(postReqDto, pinNo);
@@ -52,4 +57,19 @@ public class PostService {
         postDao.insertPost(post);
     }
 
+    // 글 조회
+    public PostRspDto openPost(String postNo) {
+        HttpSession session = request.getSession();
+        String pinNo = (String)session.getAttribute("pinNo");
+
+        // post 타입으로 dao 소환
+        Post post = new Post();
+        post.postNoStrToInt(postNo, pinNo);
+
+        // postRspDto 에 값 옮겨담기
+        PostRspDto postRspDto = new PostRspDto();
+        postRspDto.VoToDto(postDao.onePost(post));
+
+        return postRspDto;
+    }
 }

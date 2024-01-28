@@ -34,6 +34,7 @@ public class IndexController {
     public String findTestPage() { return "test"; }
 
     // 게시글 작성 페이지 이동
-    @GetMapping("/popupThyme")
-    public String popupPage() { return "/post/popup"; }
+    @GetMapping("/popupNewWrite")
+    public String newPost() { return "/post/popupnewpost"; }
+
 }

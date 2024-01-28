@@ -1,34 +1,60 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+/*  ******* centerArea  테스트 중 *******  */
+.centerArea {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
 
-span, input, button { font-family: 'Pretendard'; }
-
+/* 컨테이너 내부 게시물 공간 전체 flex-wrap: wrap 을 위해 만들었음  */
 .postArea {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 30px; }
 
-.postsBox,
-.newPosts {
+/* 반복하는 영역 전체 (>tape, >memo) */
+.postsBox {
     width: 200px;
-    height: 174px;
+    height: 190px;
     margin: 15px;
     display: flex;
     justify-content: center;
+    align-items : center;
+    flex-direction: column;
+    position: relative; }
+
+.tapeImg {
+    width: 110px;
+    display: block;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 1; }
+
+.newPosts,
+.memoBox {
+    width: 100%;
+    height: 158px;
     background-color: #DFE7E1;
     border: none;
-    border-radius: 5px; }
-
-.postsBox {
-    gap: 10px;
-    flex-direction: column; }
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    padding-top: 11px; }
 
 .newPosts {
     align-items : center;
-}
+    top: 22px; }
 
+.memoBox {
+    flex-direction: column;
+    bottom: 0px;
+    gap: 10px; }
+
+
+/* 게시물 리스트 내용 css [posts] */
 .postsDate {
-    height: 10%;
+    height: 15%;
     padding: 0 10px; }
 
 .postsDate span {
@@ -36,8 +62,10 @@ span, input, button { font-family: 'Pretendard'; }
     font-size: 10pt; }
 
 .postsTitle {
-    height: 65%;
-    padding: 0 10px;
+    height: 60%;
+    padding: 0 20px 0 28px;
+    letter-spacing: 0.05em;
+    line-height: 140%;
     display : flex;
     justify-content : center;
     align-items : center;
@@ -89,12 +117,22 @@ span, input, button { font-family: 'Pretendard'; }
     z-index: 2; }
 
 
-/* 팝업 디자인 */
+/* 팝업 공통 디자인 */
 .postBox {
     display: flex;
     flex-direction: column;
     align-items: center; }
 
+.closePostBtn {
+    font-size: 16pt;
+    margin-left: auto;
+    background: transparent;
+    border: none; }
+
+.closePostBtn:hover {
+    color: white; }
+
+/* 새글 작성 css */
 .postTitle,
 .postContent,
 .postDate {
@@ -113,16 +151,12 @@ span, input, button { font-family: 'Pretendard'; }
     height: 140px;
     resize: none; }
 
-.closePostBtn {
-    font-size: 16pt;
-    margin-left: auto;
-    background: transparent;
-    border: none; }
+/* 글 조회 css */
+.readTitle {background-color:red;}
+.readContent {background-color:blue;}
+.readDueDate {background-color:green;}
 
-.closePostBtn:hover {
-    color: white;
-}
-
+/* 버튼 (작성, 수정, 삭제) */
 .writePostBtn {
     font-size: 11pt;
     letter-spacing: 0.1em;
