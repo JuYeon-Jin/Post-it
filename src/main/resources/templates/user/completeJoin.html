@@ -29,12 +29,9 @@
 </head>
 <body>
 
-
 <div id="wrapper" class="wrapper">
-
-    <div class="header">
-        <div th:include="header"></div>
-    </div>
+<!-- 헤더 -->
+<div class="header"><div th:insert="~{header}"></div></div>
 
     <div class="container">
         <div class="boxDesign3">
@@ -48,10 +45,8 @@
         </div><!-- end.boxDesign1 -->
     </div><!-- end.container -->
 
-    <div class="footer">
-        <div th:include="footer"></div>
-    </div>
-
+<!-- 풋터 -->
+<div class="footer"><div th:insert="~{footer}"></div></div>
 </div>
 
 </body>

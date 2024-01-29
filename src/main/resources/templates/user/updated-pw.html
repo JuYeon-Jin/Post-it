@@ -30,13 +30,11 @@
 <body>
 
 <div id="wrapper" class="wrapper">
-
-    <div class="header">
-        <div th:include="header"></div>
-    </div>
+<!-- 헤더 -->
+<div class="header"><div th:insert="~{header}"></div></div>
 
     <div class="container">
-        <div class="boxDesign3">
+    <div class="boxDesign3">
 
         <div class="infoArea">
             <span><span class="redColor">비밀번호 변경</span>이 완료되었습니다.</span>
@@ -44,13 +42,11 @@
             <div id="countArea" class="countArea">5</div>
         </div>
 
-        </div><!-- end.boxDesign1 -->
+    </div><!-- end.boxDesign3 -->
     </div><!-- end.container -->
 
-    <div class="footer">
-        <div th:include="footer"></div>
-    </div>
-
+<!-- 풋터 -->
+<div class="footer"><div th:insert="~{footer}"></div></div>
 </div>
 
 </body>

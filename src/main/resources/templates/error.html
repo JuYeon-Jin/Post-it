@@ -9,30 +9,26 @@
 <body>
 
 <div class="wrapper">
-
-    <div class="header">
-        <div th:include="header"></div>
-    </div>
+<!-- 헤더 -->
+<div class="header"><div th:insert="~{header}"></div></div>
 
     <div class="container">
-        <div class="boxDesign3">
+    <div class="boxDesign3">
 
             <div class="infoArea">
-                <span class="infoError">존재하지 않는 회원입니다.</span>
+                <span class="infoError">서비스에 접근할 수 없습니다.</span>
             </div>
 
             <div class="btnArea">
-                <a href="/mainpage"><button type="submit" class="findBtn">로그인</button></a>
+                <a href="/mainpage"><button type="submit" class="findBtn">메인페이지</button></a>
                 <a href="/findid-form"><button type="submit" class="findBtn">아이디 찾기</button></a>
             </div>
 
-        </div><!-- end.boxDesign1 -->
+    </div><!-- end.boxDesign3 -->
     </div><!-- end.container -->
 
-    <div class="footer">
-        <div th:include="footer"></div>
-    </div>
-
+<!-- 풋터 -->
+<div class="footer"><div th:insert="~{footer}"></div></div>
 </div>
 
 </body>

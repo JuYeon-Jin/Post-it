@@ -83,49 +83,48 @@
 
 <div id="wrapper" class="wrapper">
 <!-- 헤더 -->
-<div class="header"><div th:include="header"></div></div>
-
+<div class="header"><div th:insert="~{header}"></div></div>
 
     <!-- 컨테이너 -->
     <div class="container">
-        <div class="boxDesign2">
+    <div class="boxDesign2">
 
-            <form action="/join" id="joinForm" method="post" class="colFormBox">
+        <form action="/join" id="joinForm" method="post" class="colFormBox">
 
-                <div class="inputBox">
-                    <!-- 아이디 -->
-                    <span class="text">아이디</span>
-                    <input type="text" id="id" name="id" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
-                    <span id="idCheck" class="checkText"></span><br>
-                    <!-- 비밀번호 -->
-                    <span class="text">비밀번호</span>
-                    <input type="password" id="password" name="password" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
-                    <span id="pwCheck" class="checkText"></span><br>
-                    <!-- 닉네임 -->
-                    <span class="text">닉네임</span>
-                    <input type="text" id="nickName" name="nickName" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
-                    <span id="nnCheck" class="checkText"></span><br>
-                    <!-- 이메일 -->
-                    <span class="text">이메일</span>
-                    <input type="text" id="email" name="email" class="lenL"
-                           autocomplete="off" spellcheck="false" placeholder="선택입력"><br>
-                    <span id="emailCheck" class="checkText"></span>
-                </div>
+            <div class="inputBox">
+                <!-- 아이디 -->
+                <span class="text">아이디</span>
+                <input type="text" id="id" name="id" class="lenL"
+                       autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
+                <span id="idCheck" class="checkText"></span><br>
+                <!-- 비밀번호 -->
+                <span class="text">비밀번호</span>
+                <input type="password" id="password" name="password" class="lenL"
+                       autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
+                <span id="pwCheck" class="checkText"></span><br>
+                <!-- 닉네임 -->
+                <span class="text">닉네임</span>
+                <input type="text" id="nickName" name="nickName" class="lenL"
+                       autocomplete="off" spellcheck="false" placeholder="필수입력"><br>
+                <span id="nnCheck" class="checkText"></span><br>
+                <!-- 이메일 -->
+                <span class="text">이메일</span>
+                <input type="text" id="email" name="email" class="lenL"
+                       autocomplete="off" spellcheck="false" placeholder="선택입력"><br>
+                <span id="emailCheck" class="checkText"></span>
+            </div>
 
-                <button type="button" id="joinBtn" class="joinBtn">회원가입</button><br>
-                <span id="finalCheck" class="checkText"></span>
+            <button type="button" id="joinBtn" class="joinBtn">회원가입</button><br>
+            <span id="finalCheck" class="checkText"></span>
 
-            </form>
+        </form>
 
-        </div><!-- end.boxDesign2 -->
+    </div><!-- end.boxDesign2 -->
     </div><!-- end.container -->
 
 
 <!-- 풋터 -->
-<div class="footer"><div th:include="footer"></div></div>
+<div class="footer"><div th:insert="~{footer}"></div></div>
 </div>
 
 </body>
