@@ -15,12 +15,12 @@ CREATE TABLE USERS(
 	FOREIGN KEY (pinNo) REFERENCES UserPin(pinNo)
 );
 
--- 게시물 테이블 생성 
+-- 게시물 테이블 생성 (제목 20자, 내용 85자 제한)
 CREATE TABLE POST(
 	postNo SERIAL PRIMARY KEY,
 	pinNo CHAR(36) NOT NULL,
-	title varchar(40) NOT NULL,
-	content varchar(400),
+	title varchar(80) NOT NULL,
+	content varchar(340),
 	dueDate DATETIME NOT NULL,
 	postDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY (pinNo) REFERENCES USERPIN(pinNo)

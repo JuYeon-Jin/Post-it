@@ -4,14 +4,65 @@
     <meta charset="UTF-8">
     <title>post !t</title>
     <link rel="stylesheet" type="text/css" href="/css/frame.css">
-    <link rel="stylesheet" type="text/css" href="/css/test.css">
+    <link rel="stylesheet" type="text/css" href="/css/post.css">
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
 
-        function clickEvent() {
-            var divValue = $(this).data('value');
-            alert("클릭 " + divValue);
+        // 현재 파일의 div에 외부 HTML 내용을 삽입하는 함수
+        async function insertExternalHtmlIntoDiv(divId, externalHtmlPath) {
+                const divElement = document.getElementById(divId);
+                const externalHtmlText = await fetchHtmlAsText(externalHtmlPath);
+                divElement.innerHTML = externalHtmlText;
+
+                showPopup();
+        }
+
+        // 외부 HTML(url)을 텍스트로 가져오는 함수
+        async function fetchHtmlAsText(url) {
+            const response = await fetch(url);
+            return await response.text();
+        }
+
+        // 팝업 띄우기
+        function showPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+
+            setTimeout(function() {
+                document.getElementById('popup').style.opacity = '1';
+            }, 50);
+        }
+
+        // 팝업 닫기
+        function closeForm() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popup').style.opacity = '0';
+        }
+
+        // 폼 submit
+        function urlForSubmit(url, postNo) {
+            var form = document.getElementById("readOnePost");
+            form.action = url + "?" + postNo;
+            form.submit();
+        }
+
+        // 글 조회
+        $().ready(function() {
+            $(".memoBox").click(function() {
+                insertExternalHtmlIntoDiv('popup', '/popupNewWrite');
+            });
+        });
+
+        // 글 수정
+        function updatePost(postNo) {
+            alert("수정 postNo:" + postNo);
+        }
+
+        // 글 삭제
+        function deletePost(postNo) {
+            alert("삭제 postNo:" + postNo);
         }
 
     </script>
@@ -31,7 +82,7 @@
             <!-- 게시물 리스트 반복 출력 -->
             <div class="postsBox">
             <img src="/img/tapeS.png" class="tapeImg">
-            <div class="memoBox" data-value="Hello, World!" onclick="clickEvent('${post.postNo}')">
+            <div class="memoBox" data-value="Hello, World!" onclick="clickEvent()">
                 <div class="postsDate">
                     <span>2024-01-30 18:00:00</span>
                 </div>

@@ -41,29 +41,24 @@
             document.getElementById('popup').style.opacity = '0';
         }
 
-        // 글 작성
-        function writePost() {
-            alert("글 작성 클릭");
-            var form = document.getElementById("writePost");
-            form.submit();
-        }
-
         // 글 조회
         $().ready(function() {
             $(".memoBox").click(function() {
                 var postId = $(this).attr("id");
                 insertExternalHtmlIntoDiv('popup', '/openPost?postNo=' + postId);
             });
+
+
         });
 
         // 글 수정
         function updatePost(postNo) {
-            alert("수정 postNo:" + postNo);
+            insertExternalHtmlIntoDiv('popup', '/updatePostForm?postNo=' + postNo);
         }
 
         // 글 삭제
         function deletePost(postNo) {
-            alert("삭제 postNo:" + postNo);
+            window.location.href = "/deletePost?postNo=" + postNo;
         }
 
     </script>
@@ -73,13 +68,11 @@
 
 <div class="wrapper">
     <!-- 헤더 -->
-    <div class="header"><div th:include="header"></div></div>
+    <div class="headerPost"><div th:include="header"></div></div>
 
 
     <!-- 컨테이너 -->
     <div class="container">
-        로그인 확인용 회원정보<br>
-        닉네임 : <span th:text="${session.nickName}"></span> 님<br><br>
     <div class="centerArea">
     <div class="postArea">
 

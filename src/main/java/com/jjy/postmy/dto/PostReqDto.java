@@ -13,8 +13,11 @@ public class PostReqDto {
     private String content;
     private String dueDate;
 
+    // 기본생성자를 넣으면 게시물 생성이 불가함
+    /*
     public PostReqDto() {
     }
+    */
 
     public void postNoCon(String strPostNo) {
         this.postNo = strPostNo;

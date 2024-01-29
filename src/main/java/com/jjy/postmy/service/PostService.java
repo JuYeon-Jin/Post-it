@@ -48,8 +48,6 @@ public class PostService {
     public void insertPost(PostReqDto postReqDto) {
         HttpSession session = request.getSession();
         String pinNo = (String)session.getAttribute("pinNo");
-        System.out.println("pinNo = " + pinNo);
-        System.out.println("postReqDto.getTitle = " + postReqDto.getTitle());
 
         Post post = new Post();
         post.dtoToPost(postReqDto, pinNo);
@@ -71,5 +69,28 @@ public class PostService {
         postRspDto.VoToDto(postDao.onePost(post));
 
         return postRspDto;
+    }
+
+    // 글 수정
+    public void updatePost(PostReqDto postReqDto) {
+        HttpSession session = request.getSession();
+        String pinNo = (String)session.getAttribute("pinNo");
+
+        Post post = new Post();
+        post.postNoStrToInt(postReqDto.getPostNo(), pinNo);
+        post.dtoToPost(postReqDto, pinNo);
+
+        postDao.updatePost(post);
+    }
+
+    // 글 삭제
+    public void deletePost(String postNo) {
+        HttpSession session = request.getSession();
+        String pinNo = (String)session.getAttribute("pinNo");
+
+        Post post = new Post();
+        post.postNoStrToInt(postNo, pinNo);
+
+        postDao.deletePost(post);
     }
 }

@@ -121,7 +121,8 @@
 .postBox {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    position: relative; }
 
 .closePostBtn {
     font-size: 16pt;
@@ -132,29 +133,103 @@
 .closePostBtn:hover {
     color: white; }
 
+
 /* 새글 작성 css */
 .postTitle,
 .postContent,
 .postDate {
-    width: 250px;
+    width: 260px;
+    box-sizing: border-box;
     border: none;
     border-radius: 3px;
     background-color: white;
-    padding: 5px;
     margin-top: 10px; }
 
-.postTitle
-.postDate {
-    height: 28px; }
+.postTitle {
+    height: 28px;
+    /* padding: top right bottom left; */
+    letter-spacing: 0.04em;
+    padding: 5px 34px 5px 5px; }
 
 .postContent {
-    height: 140px;
-    resize: none; }
+    height: 155px;
+    letter-spacing: 0.04em;
+    line-height: 130%;
+    padding: 5px;
+    resize: none;
+    overflow: hidden; }
+
+.postDate {
+    height: 25px;
+    padding: 5px; }
+
+.postTitle:focus,
+.postContent:focus {
+    outline: none;
+    background-color: #fcf5cf;
+}
+
+/* 입력 글자수 css */
+.maxLenTitle,
+.maxLenContent {
+    position: absolute;
+    color: gray;
+    font-size: 9pt;
+    right: 23px; }
+
+.maxLenTitle {
+    top: 43px; }
+
+.maxLenContent {
+    top: 209px; }
+
 
 /* 글 조회 css */
-.readTitle {background-color:red;}
-.readContent {background-color:blue;}
-.readDueDate {background-color:green;}
+.paper {
+    background-color: white;
+    width: 84%;
+    height: 238px;
+    padding: 12px;
+    margin-top: 3px;
+    border-radius: 1px;
+    position: relative;
+}
+
+.postButton {
+    margin-top: 10px;
+    width: 88%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.readTitle {
+    padding: 8px 0;
+    display: flex;
+    flex:1;
+    align-items : center;
+    letter-spacing: 0.04em;
+    line-height: 140%;
+}
+
+.readContent {
+    height: 60%;
+    padding-top: 5px;
+    letter-spacing: 0.04em;
+    line-height: 140%;
+}
+
+.readDueDate {
+    height: 12%;
+    position: absolute;
+    bottom: 1px;
+    right: 11px;
+}
+
+.readDueDate span {
+    font-size: 10pt;
+    color: gray;
+}
 
 /* 버튼 (작성, 수정, 삭제) */
 .writePostBtn {
@@ -176,4 +251,13 @@
     font-weight: bold;
 }
 
+.postButton button {
+    font-size: 11pt;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    height: 25px;
+    width: 50px;
+}
 

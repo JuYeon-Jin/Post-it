@@ -7,12 +7,14 @@
 <body>
 
 <!--  controller 는 id 가 아니라 name 으로 데이터를 받는다.  -->
-<form action="/insertPost" method="POST" id="writePost" class="postBox">
+<form action="/insertPost" id="insertPostForm" method="post" class="postBox">
     <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
-    <input type="text" id="title" name="title" class="postTitle">
+    <input type="text" id="title" name="title" class="postTitle" maxlength="20">
+        <div class="maxLenTitle"><span class="lenTitle">0</span><span>/20</span></div>
     <textarea id="content" name="content" class="postContent"></textarea>
+        <div class="maxLenContent"><span class="lenContent">0</span><span>/85</span></div>
     <input type="text" id="dueDate" name="dueDate" class="postDate" placeholder="2024-01-24 18:00:00">
-    <button type="button" class="writePostBtn" th:onclick="writePost()">작성완료</button>
+    <button type="submit" class="writePostBtn">작성완료</button>
 </form>
 
 </body>

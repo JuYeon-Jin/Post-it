@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>writePopup</title>
+</head>
+<body>
+
+<!--  controller 는 id 가 아니라 name 으로 데이터를 받는다.  -->
+<form action="/updatePost" id="insertPostForm" method="post" class="postBox">
+    <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
+        <input type="hidden" id="postNo" name="postNo" th:value="${post.postNo}">
+        <input type="text" id="title" name="title" class="postTitle" maxlength="20"
+            th:value="${post.title}">
+                <div class="maxLenTitle"><span class="lenTitle">0</span><span>/20</span></div>
+        <textarea id="content" name="content" class="postContent"
+            th:text="${post.content}"></textarea>
+                <div class="maxLenContent"><span class="lenContent">0</span><span>/85</span></div>
+    <input type="text" id="dueDate" name="dueDate" class="postDate">
+    <button type="submit" class="writePostBtn">수정완료</button>
+</form>
+
+</body>
+</html>

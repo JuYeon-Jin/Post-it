@@ -6,7 +6,7 @@
     font-weight: 400;
     font-style: normal; }
 
-span, button, input { font-family: 'Pretendard'; }
+span, button, input, textarea { font-family: 'Pretendard'; }
 
 body {
     width: 100vw;
@@ -60,6 +60,12 @@ body {
 .header {
     height: 30%;
     min-height: 200px;  /* 01/21 추가 */
+    align-items: flex-end;
+}
+
+.headerPost {
+    height: 20%;
+    min-height: 100px;
     align-items: flex-end;
 }
 

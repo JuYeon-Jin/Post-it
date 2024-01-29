@@ -6,17 +6,20 @@
 </head>
 <body>
 
-<form action="" method="post" class="postBox">
+<form method="GET" id="readOnePost" class="postBox">
     <button type="button" class="closePostBtn" onclick="closeForm()">x</button>
-    <div class="readTitle"><span th:text="${post.title}"></span></div>
-    <div class="readContent"><span th:text="${post.content}"></span></div>
-    <div class="readDueDate"><span th:text="${post.dueDate}"></span></div>
-    <button type="button" class="" th:postNoId="${post.postNo}"
-            th:onclick="updatePost(this.getAttribute('postNoId'))">수정</button>
-    <button type="button" class="" th:postNoId="${post.postNo}"
-            th:onclick="updatePost(this.getAttribute('postNoId'))">삭제</button>
+    <div class="paper">
+        <div class="readTitle"><span th:text="${post.title}"></span></div>
+        <div class="readContent"><span th:text="${post.content}"></span></div>
+        <div class="readDueDate"><span>마감일 : </span><span th:text="${post.dueDate}"></span></div>
+    </div>
+    <div class="postButton">
+        <button type="button" class="" th:postNoId="${post.postNo}"
+                th:onclick="updatePost(this.getAttribute('postNoId'))">수정</button>
+        <button type="button" class="" th:postNoId="${post.postNo}"
+                th:onclick="deletePost(this.getAttribute('postNoId'))">삭제</button>
+    </div>
 </form>
-
 
 </body>
 </html>

@@ -28,8 +28,7 @@ public class PostController {
 
     // 글 작성하기
     @PostMapping("/insertPost")
-    public String insertPost(@RequestBody PostReqDto postReqDto) {
-        System.out.println("postReqDto.getTitle = " + postReqDto.getTitle());
+    public String insertPost(PostReqDto postReqDto) {
         postService.insertPost(postReqDto);
         return "redirect:/my-posts";
     }
@@ -43,4 +42,26 @@ public class PostController {
         return mav;
     }
 
+    // 게시글 수정 페이지 이동
+    @GetMapping("/updatePostForm")
+    public ModelAndView updatePostForm(@RequestParam("postNo") String postNo, ModelAndView mav) {
+        mav.setViewName("/post/popupupdatepost");
+        mav.addObject("post", postService.openPost(postNo));
+
+        return mav;
+    }
+
+    // 게시글 수정
+    @PostMapping("/updatePost")
+    public String updatePost(PostReqDto postReqDto) {
+        postService.updatePost(postReqDto);
+        return "redirect:/my-posts";
+    }
+
+    // 게시글 삭제
+    @GetMapping("/deletePost")
+    public String deletePost(@RequestParam("postNo") String postNo) {
+        postService.deletePost(postNo);
+        return "redirect:/my-posts";
+    }
 }
