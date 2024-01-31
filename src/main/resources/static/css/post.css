@@ -138,7 +138,6 @@
 .postTitle,
 .postContent,
 .postDate {
-    width: 260px;
     box-sizing: border-box;
     border: none;
     border-radius: 3px;
@@ -146,12 +145,14 @@
     margin-top: 10px; }
 
 .postTitle {
+    width: 260px;
     height: 28px;
     /* padding: top right bottom left; */
     letter-spacing: 0.04em;
     padding: 5px 34px 5px 5px; }
 
 .postContent {
+    width: 260px;
     height: 155px;
     letter-spacing: 0.04em;
     line-height: 130%;
@@ -160,6 +161,7 @@
     overflow: hidden; }
 
 .postDate {
+    width: 128px;
     height: 25px;
     padding: 5px; }
 

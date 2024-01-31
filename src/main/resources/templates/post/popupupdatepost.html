@@ -16,7 +16,10 @@
         <textarea id="content" name="content" class="postContent"
             th:text="${post.content}"></textarea>
                 <div class="maxLenContent"><span class="lenContent">0</span><span>/85</span></div>
-    <input type="text" id="dueDate" name="dueDate" class="postDate">
+    <div>
+        <input type="date" id="dueDate" name="dueDate" class="postDate">
+        <input type="time" id="dueTime" name="dueTime" class="postDate">
+    </div>
     <button type="submit" class="writePostBtn">수정완료</button>
 </form>
 
