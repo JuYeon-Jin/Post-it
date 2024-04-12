@@ -27,10 +27,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • 아이디,비밀번호,닉네임 문자형식 체크</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • 이메일형식 체크</br>
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 포스트
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • 글 작성, 읽기, 수정, 삭제(CRUD)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • 글 작성, 읽기, 수정, 삭제(CRUD)</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • 글자수 제한</br>
 ### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 메인페이지
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • @media 크기에 맞추는 화면 비율(css)</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; • @media 크기에 맞추는 화면 비율(css)</br></br></br>
 
 
 
