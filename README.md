@@ -1,4 +1,4 @@
-![image](https://github.com/JuYeon-Jin/Post-it/assets/123148365/1db6df0d-d96f-48db-957a-ef172f3991b0)### 🖥️ 프로젝트 소개
+### 🖥️ 프로젝트 소개
 나의 일정이나 목표를 작성할 수 있는 Post-It 형식의 게시판입니다.</br></br>
 
 ![postMain](https://github.com/JuYeon-Jin/board_test/assets/123148365/59f3779e-553f-409f-8622-2ee449c5a0c6)
